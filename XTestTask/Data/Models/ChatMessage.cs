@@ -1,0 +1,13 @@
+namespace XTestTask.Data.Models
+{
+    public class ChatMessage
+    {
+        public int Id { get; set; }
+        public int ChatId { get; set; }
+        public int MemberId { get; set; }
+        public string Message { get; set; } = null!;  
+
+        public virtual Chat Chat { get; set; } = null!;
+        public virtual ChatMember Member { get; set; } = null!;
+    }
+}
