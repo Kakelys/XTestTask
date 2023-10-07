@@ -6,6 +6,7 @@ namespace XTestTask.Data.Models
         public int ChatId { get; set; }
         public int MemberId { get; set; }
         public string Message { get; set; } = null!;  
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         public virtual Chat Chat { get; set; } = null!;
         public virtual ChatMember Member { get; set; } = null!;

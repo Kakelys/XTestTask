@@ -100,6 +100,9 @@ namespace XTestTask.Data
                 cm.Property(cm => cm.Message)
                     .IsRequired();
 
+                cm.Property(cm => cm.CreatedAt)
+                    .IsRequired();
+
                 cm.HasOne(cm => cm.Chat)
                     .WithMany(c => c.Messages)
                     .HasForeignKey(cm => cm.ChatId)
