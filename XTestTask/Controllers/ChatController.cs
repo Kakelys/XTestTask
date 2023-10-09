@@ -83,8 +83,8 @@ namespace XTestTask.Controllers
         }
 
         [HttpDelete("{chatId}")]
-        [ChatPermissionFilter("user", "chatId", "UserId")]
-        public async Task<IActionResult> Delete(int chatId, UserDto user)
+        [ChatPermissionFilter]
+        public async Task<IActionResult> Delete(int chatId, [FromQuery] int userId)
         {
             await _chatService.DeleteChat(chatId);
             await _chatHubService.InvokeCloseChat(chatId);
@@ -92,8 +92,8 @@ namespace XTestTask.Controllers
         }
 
         [HttpDelete("{chatId}/messages/{messageId}")]
-        [MessagePermissionFilter("user", "messageId", "UserId")]
-        public async Task<IActionResult> DeleteMessage(int chatId, int messageId, UserDto user)
+        [MessagePermissionFilter]
+        public async Task<IActionResult> DeleteMessage(int chatId, int messageId, [FromQuery] int userId)
         {
             await _chatService.DeleteMessage(messageId);
             await _chatHubService.InvokeDeleteMessage(chatId, messageId);
