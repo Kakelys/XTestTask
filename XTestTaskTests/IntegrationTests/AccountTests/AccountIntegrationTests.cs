@@ -1,15 +1,11 @@
 using System.Net;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
-using Newtonsoft.Json;
-using XTestTask.Data;
 using XTestTask.DTO.DAccount;
 
 namespace XTestTaskTests.IntegrationTests
 {
-    public class AccountControllerIntegrationTests
+    public class AccountIntegrationTests
     {
         private HttpClient _client;
         private WebApplicationFactory<Program> _factory;
