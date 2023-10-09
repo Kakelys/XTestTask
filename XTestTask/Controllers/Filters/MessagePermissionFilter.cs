@@ -7,9 +7,12 @@ namespace XTestTask.Controllers.Filters
 {
     public class MessagePermissionFilter : ActionFilterAttribute
     {
-        private string _dtoArgumentName;
+        private string _dtoArgumentName = "";
         private string _messageIdKey = "messageId";
         private string _userIdKey = "userId";
+
+        public MessagePermissionFilter()
+        {}
 
         public MessagePermissionFilter(string dtoArgumentName)
         {

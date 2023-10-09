@@ -7,9 +7,12 @@ namespace XTestTask.Controllers.Filters
 {
     public class ChatPermissionFilter : ActionFilterAttribute
     {
-        private string _dtoArgumentName;
+        private string _dtoArgumentName = "";
         private string _chatIdKey = "chatId";
         private string _userIdKey = "userId";
+
+        public ChatPermissionFilter()
+        {}
 
         public ChatPermissionFilter(string dtoArgumentName)
         {
