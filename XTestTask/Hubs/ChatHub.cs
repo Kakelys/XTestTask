@@ -117,6 +117,13 @@ namespace XTestTask.Hubs
             await _chatHubService.InvokeDeleteMessage(chatId, messageId);
         }
 
+        public override async Task OnDisconnectedAsync(Exception? exception)
+        {
+            _chatHubService.RemoveUser(Context.ConnectionId);
+
+            await base.OnDisconnectedAsync(exception);
+        }
+
         private async Task<bool> ChatPermissionCheck(int userId, int chatId)
         {
             if(await _rep.Chat.FindByCondition(c => c.Id == chatId && c.CreatorId == userId).AnyAsync())
