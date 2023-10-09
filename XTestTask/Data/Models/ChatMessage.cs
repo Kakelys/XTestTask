@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace XTestTask.Data.Models
 {
     public class ChatMessage
@@ -8,7 +10,9 @@ namespace XTestTask.Data.Models
         public string Message { get; set; } = null!;  
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
+        [JsonIgnore]
         public virtual Chat Chat { get; set; } = null!;
+        [JsonIgnore]
         public virtual ChatMember Member { get; set; } = null!;
     }
 }
